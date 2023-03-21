@@ -27,11 +27,12 @@
 </pre>
 
 <!-- UI -->
+<div>
 <form onsubmit="run()">
 <input style="messagebox" id="message" type="text"></input>
 <button type="submit">Submit</button>
 </form>
-
+</div>
 <script>
 	
 <!-- Basically the entire AI -->
@@ -83,6 +84,11 @@ function run() {
 <!-- StyleSheet for the website. -->
 <style>
 
+div {
+position: absolute;
+margin-top: 30%;
+}
+	
 pre {
 text-align: center;
 white-space: pre;
@@ -95,8 +101,6 @@ body {
 }
 
 input { 
-position: relative; 
-margin-top: 30%; 
 border-color: #4AF626;
 background-color: darkgray;
 color: white;
