@@ -1,0 +1,113 @@
+<html>
+
+<pre>
+
+      ,+++77777++=:,                    +=                      ,,++=7++=,,     
+    7~?7   +7I77 :,I777  I          77 7+77 7:        ,?777777??~,=+=~I7?,=77 I 
+=7I7I~7  ,77: ++:~+7 77=7777 7     +77=7 =7I7     ,I777= 77,:~7 +?7, ~7   ~ 777?
+77+7I 777~,,=7~  ,::7=7: 7 77   77: 7 7 +77,7 I777~+777I=   =:,77,77  77 7,777, 
+  = 7  ?7 , 7~,~  + 77 ?: :?777 +~77 77? I7777I7I7 777+77   =:, ?7   +7 777?    
+      77 ~I == ~77= +777 777~: I,+77?  7  7:?7? ?7 7 7 77 ~I   7I,,?7 I77~      
+       I 7=77~+77+?=:I+~77?     , I 7? 77 7   777~ +7 I+?7  +7~?777,77I         
+         =77 77= +7 7777         ,7 7?7:,??7     +7    7   77??+ 7777,          
+             =I, I 7+:77?         +7I7?7777 :             :7 7                  
+                7I7I?77 ~         +7:77,     ~         +7,::7   7               
+               ,7~77?7? ?:         7+:77777,           77 :7777=                
+                ?77 +I7+,7         7~  7,+7  ,?       ?7?~?777:                 
+                   I777=7777 ~     77 :  77 =7+,    I77  777                    
+                     +      ~?     , + 7    ,, ~I,  = ? ,                       
+                                    77:I+                                       
+                                    ,7                                          
+                                     :77                                        
+                                        :                                        
+</pre>
+
+<form onsubmit="run()">
+<input style="messagebox" id="message" type="text"></input>
+<button type="submit">Submit</button>
+</form>
+
+<script>
+
+function run() {
+	var Message = document.getElementById("message").value;
+	if(Message == "hello"){
+		alert("Hello!");
+		return;
+	}
+	if(Message == "hi"){
+		alert("Hello!");
+		return;
+	}
+	if(Message == "how are you?"){
+		alert("Im good.");
+		return;
+	}
+	if(Message == "how are you"){
+		alert("Im good.");
+		return;
+	}
+	if(Message == "die"){
+		alert("Unfortunately I am not able to die since I am a computer program.");
+		return;
+	}
+	if(Message == "gavin"){
+		alert("Hello, I was told about you Gavin how are you?");
+		return;
+	}
+	if(Message == "daniel"){
+		alert("You wanted to know if i added anything for my name? you really are predictable.");
+		return;
+	}
+	if(Message == "good"){
+		alert("Thats good.");
+		return;
+	}
+	if(Message == "im good"){
+		alert("Thats good.");
+		return;
+	}
+	if(Message == "bad"){
+		alert("It's unfortunate to hear that. I hope your day gets better.");
+		return;
+	}
+	else {
+		alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
+	}
+}
+
+</script>
+
+<style>
+
+pre {
+text-align: center;
+white-space: pre;
+font-family: monospace;
+color: white;
+}
+
+body {
+	background-color: black;
+}
+
+input { 
+position: relative; 
+margin-top: 30%; 
+border-color: #4AF626;
+background-color: darkgray;
+color: white;
+width: 90%;
+height: 50px;
+}
+
+button {
+border-color: #4AF626;
+background-color: darkgray;
+color: white;
+height: 50px;
+width: 9.7%;
+}
+
+</style>
+</html>
