@@ -59,15 +59,20 @@ function run() {
 		return;
 	}
 	if(Message == "gavin"){
+		var PreMessage = Message;
 		alert("Hello, I was told about you Gavin how are you?");
 		return;
 	}
 	if(Message == "good"){
-		alert("Thats good.");
+		if(PreMessage == "gavin"){ 
+			alert("Thats good.");
+		}
 		return;
 	}
 	if(Message == "im good"){
-		alert("Thats good.");
+		if(PreMessage == "gavin"){ 
+			alert("Thats good.");
+		}
 		return;
 	}
 	if(Message == "bad"){
