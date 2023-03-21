@@ -35,9 +35,11 @@
 </div>
 <script>
 		       
-var input = document.getElementByID("message");
+var input = document.getElementById("message");
 input.addEventListener("keypress", function(event) {
-	run()
+	if (event.key == "Enter") {
+		run()
+	}
 }
 	
 <!-- Basically the entire AI -->
