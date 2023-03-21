@@ -65,17 +65,18 @@ function run() {
 	}
 	if(Message == "gavin"){
 		var PreMessage = true;
+		alert("set to true");
 		alert("Hello, I was told about you Gavin how are you?");
         return;
 	}
 	if(Message == "good"){
-		if(PreMessage === true){ 
+		if(PreMessage){ 
 			alert("Thats good.");
 			return;
 		}
 	}
 	if(Message == "im good"){
-		if(PreMessage === true){ 
+		if(PreMessage){ 
 			alert("Thats good.");
 			return;
 		}
