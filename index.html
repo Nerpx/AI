@@ -39,48 +39,38 @@
 function run() {
 	var Message = document.getElementById("message").value;
 	if(Message == "hello"){
-		const PreMessage = false;
 		alert("Hello.");
 		return;
 	}
 	if(Message == "hi"){
-		const PreMessage = false;
 		alert("Hello.");
 		return;
 	}
 	if(Message == "how are you?"){
-		const PreMessage = false;
 		alert("Im good.");
 		return;
 	}
 	if(Message == "how are you"){
-		const PreMessage = false;
 		alert("Im good.");
 		return;
 	}
 	if(Message == "die"){
-		const PreMessage = false;
 		alert("Unfortunately I am not able to die since I am a computer program.");
 		return;
 	}
 	if(Message == "gavin"){
-		const PreMessage = true;
 		alert("Hello, I was told about you Gavin how are you?");
+		return;
 	}
 	if(Message == "good"){
-		if(PreMessage){ 
-			alert("Thats good.");
-			return;
-		}
+		alert("Thats good.");
+		return;
 	}
 	if(Message == "im good"){
-		if(PreMessage){ 
-			alert("Thats good.");
-			return;
-		}
+		alert("Thats good.");
+		return;
 	}
 	if(Message == "bad"){
-		const PreMessage = false;
 		alert("It's unfortunate to hear that. I hope your day gets better.");
 		return;
 	}
