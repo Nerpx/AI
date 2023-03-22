@@ -64,15 +64,11 @@ function run() {
     }
 
     if (!foundResponse) {
-    var newKeyword = prompt("Sorry, but I couldn't find a keyword. Please enter a new keyword. #NOTE this doesn't work at the moment");
-    if (newKeyword) {
-      var newResponse = prompt("What should the response be for the new keyword: " + newKeyword);
-      if (newResponse) {
-        responses[newKeyword] = newResponse;
-        alert("Thanks for adding the new keyword: " + newKeyword + " with response: " + newResponse);
-      }
+    var newKeyword = prompt("Sorry, but I couldn't find a keyword. Please enter a new keyword:");
+    var newResponse = prompt("What should be the response for " + newKeyword + "?");
+    responses[newKeyword] = newResponse;
+    alert("Keyword " + newKeyword + " and its response have been added.");
     }
-  }
 }
 
 
