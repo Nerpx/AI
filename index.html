@@ -64,15 +64,15 @@ function run() {
     }
 
     if (!foundResponse) {
-        alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.");
-        var newKeyword = prompt("What should be my response when you say '" + message + "'?");
-        if (newKeyword) {
-            responses[message] = newKeyword;
-            alert("Got it, my response for '" + message + "' is now: " + newKeyword);
-        } else {
-            alert("Okay, I won't remember that.");
-        }
+    var newKeyword = prompt("Sorry, but I couldn't find a keyword. Please enter a new response for that keyword.");
+    if (newKeyword) {
+      var newResponse = prompt("What should the response be for the new keyword: " + newKeyword);
+      if (newResponse) {
+        responses[newKeyword] = newResponse;
+        alert("Thanks for adding the new keyword: " + newKeyword + " with response: " + newResponse);
+      }
     }
+  }
 }
 
 
