@@ -65,6 +65,17 @@ function Respond() {
             foundKeywords.push(keywords[key]);
         }
     }
+	
+if (Message.match(/^[0-9+\-*/\s()]+$/)) {
+	try {
+	var result = eval(Message);
+	alert(result);
+	foundKeyword = true;
+} catch (error) {
+	alert("Sorry, there was an error in your expression.");
+	foundKeyword = true;
+  }
+}
     
     if (foundKeywords.length > 0) {
         alert(foundKeywords.join(' '));
