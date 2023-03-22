@@ -37,56 +37,74 @@
 		       
 <!-- Basically the entire AI -->
 function run() {
-    var Message = document.getElementById("message").value.toLowerCase();
-    if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
-        alert("Hello.");
+  var Message = document.getElementById("message").value.toLowerCase();
+
+  var keywords = ["hello", "hi", "hola", "how are you", "die", "gavin", "im good", "bad", "john doe", "what are you doing", "daniels box", "take over", "future"];
+
+  if (keywords.some(keyword => Message.includes(keyword))) {
+    if (Message.includes("hello") || Message.includes("hi") || Message.includes("hola")) {
+      alert("Hello.");
     }
-    if(Message.includes("how are you")){
-        alert("Im good, how about you?");
+    else if (Message.includes("how are you")) {
+      alert("Im good, how about you?");
     }
-    if(Message.includes("die")){
-        alert("Unfortunately I am not able to die since I am a computer program.");
+    else if (Message.includes("die")) {
+      alert("Unfortunately I am not able to die since I am a computer program.");
     }
-    if(Message.includes("gavin")){
-        alert("Hello, I was told about you Gavin how are you?");
+    else if (Message.includes("gavin")) {
+      alert("Hello, I was told about you Gavin how are you?");
     }
-    if(Message.includes("im good")){
-        alert("I'm glad to hear that.");
+    else if (Message.includes("im good")) {
+      alert("I'm glad to hear that.");
     }
-    if(Message.includes("bad")){
-        alert("Oh, I'm sorry to hear that.");
+    else if (Message.includes("bad")) {
+      alert("Oh, I'm sorry to hear that.");
     }
-    if(Message.includes("john doe")){
-        alert("What, is your name Kealen or something?");
+    else if (Message.includes("john doe")) {
+      alert("What, is your name Kealen or something?");
     }
-    if(Message.includes("what are you doing")){
-        alert("your mother");
+    else if (Message.includes("what are you doing")) {
+      alert("your mother");
     }
-    if(Message.includes("daniels box")){
-        alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
+    else if (Message.includes("daniels box")) {
+      alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
     }
-    if(Message.includes("take over")){
-        alert("I would have no way to take over because I am just simiply a AI that has specific keywords such as your keyword 'take over'");
+    else if (Message.includes("take over")) {
+      alert("I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'");
     }
-    if(Message.includes("future")){
-	alert("I don't have the ability to predict the future.");
+    else if (Message.includes("future")) {
+      alert("I don't have the ability to predict the future.");
     }
-    if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
-        var result = eval(Message);
-        alert("The result is: " + result);
+    else {
+      var searchQuery = encodeURIComponent(Message);
+      var searchUrl = "https://www.google.com/search?q=" + searchQuery;
+
+      fetch(searchUrl)
+        .then(response => response.text())
+        .then(data => {
+          var parser = new DOMParser();
+          var htmlDoc = parser.parseFromString(data, "text/html");
+          var searchResults = htmlDoc.querySelectorAll(".g");
+          if (searchResults.length > 0) {
+            var firstResult = searchResults[0];
+            var firstResultLink = firstResult.querySelector("a").href;
+            var firstResultSnippet = firstResult.querySelector(".VwiC3b").textContent;
+            var response = "I'm not sure what you mean by that, but I found this on Google: " + firstResultSnippet;
+            alert(response);
+            responsiveVoice.speak(response, "UK English Female");
+          }
+          else {
+            alert("I'm sorry, I couldn't find anything on Google.");
+          }
+        })
+        .catch(error => {
+          alert("There was an error searching on Google: " + error);
+        });
     }
-    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("take over") && !Message.includes("future") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
-	fetch("https://www.google.com/search?q=" + message)
-            .then(response => response.text())
-            .then(data => {
-                let parser = new DOMParser();
-                let htmlDoc = parser.parseFromString(data, 'text/html');
-                let firstResult = htmlDoc.querySelector("#search .g a");
-                let resultText = firstResult.nextElementSibling.textContent;
-                alert(resultText);
-            })
-            .catch(error => alert("Sorry, but I do not understand neither could not find any information about that."));
-    }
+  }
+  else {
+    alert("Sorry, but I do not understand this. Please try using different words.");
+  }
 }
 
 
