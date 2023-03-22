@@ -64,6 +64,7 @@ function run() {
   }
 
   if (!foundResponse) {
+    alert("Sorry, but I couldn't find a keyword searching on google.");
     var searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(message);
     fetch(searchUrl)
       .then(response => response.text())
@@ -71,7 +72,9 @@ function run() {
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, "text/html");
         var resultNodes = doc.querySelectorAll("div.g > div > div.rc > div.r > a");
+	alert("resultNodes is not greater than 0");
         if (resultNodes.length > 0) {
+	  alert("resultNodes is greater than 0");
           var firstResultNode = resultNodes[0];
           var firstResultUrl = firstResultNode.href;
           var firstResultTitle = firstResultNode.innerText;
