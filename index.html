@@ -62,7 +62,7 @@ function Respond() {
             foundResponse = true;
             break;
         }
-	if (/\d+[+\-*\/]\d+/.test(Message)) {
+	if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
 	    var result = eval(Message);
             alert("The result is: " + result);
         }
