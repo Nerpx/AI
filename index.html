@@ -36,53 +36,38 @@
 <script>
 		       
 <!-- Basically the entire AI -->
+var responses = {
+    "hello": "Hello.",
+    "hi": "Hello.",
+    "hola": "Hello.",
+    "how are you": "I'm good, how about you?",
+    "die": "Unfortunately I am not able to die since I am a computer program.",
+    "gavin": "Hello, I was told about you Gavin how are you?",
+    "im good": "I'm glad to hear that.",
+    "bad": "Oh, I'm sorry to hear that.",
+    "john doe": "What, is your name Kealen or something?",
+    "what are you doing": "your mother",
+    "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.",
+    "take over": "I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'",
+    "future": "I don't have the ability to predict the future.",
+    "creeper": "Is that some kind of joke? ahh man.",
+    "inflation": "Don't use vulgar language around me."
+};
+
 function Respond() {
     var Message = document.getElementById("message").value.toLowerCase();
-    if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
-        alert("Hello.");
+    var found = false;
+    for (var keyword in responses) {
+        if (Message.includes(keyword)) {
+            alert(responses[keyword]);
+            found = true;
+            break;
+        }
     }
-    if(Message.includes("how are you")){
-        alert("Im good, how about you?");
-    }
-    if(Message.includes("die")){
-        alert("Unfortunately I am not able to die since I am a computer program.");
-    }
-    if(Message.includes("gavin")){
-        alert("Hello, I was told about you Gavin how are you?");
-    }
-    if(Message.includes("im good")){
-        alert("I'm glad to hear that.");
-    }
-    if(Message.includes("bad")){
-        alert("Oh, I'm sorry to hear that.");
-    }
-    if(Message.includes("john doe")){
-        alert("What, is your name Kealen or something?");
-    }
-    if(Message.includes("what are you doing")){
-        alert("your mother");
-    }
-    if(Message.includes("daniels box")){
-        alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
-    }
-    if(Message.includes("take over")){
-        alert("I would have no way to take over because I am just simiply a AI that has specific keywords such as your keyword 'take over'");
-    }
-    if(Message.includes("future")){
-	alert("I don't have the ability to predict the future.");
-    }
-    if(Message.includes("creeper")){
-	alert("Is that some kind of joke? ahh man.");
-    }
-    if(Message.includes("inflation")){
-	alert("Don't use vulgar language around me.");
-    }
-    if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
-        var result = eval(Message);
-        alert("The result is: " + result);
-    }
-    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("take over") && !Message.includes("future") && !Message.includes("creeper") && !Message.includes("inflation") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
-        alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
+    if (!found) {
+        var newKeyword = prompt("Sorry, I do not understand this. Please enter a new keyword:");
+        var newResponse = prompt("What should my response be to this keyword?");
+        responses[newKeyword.toLowerCase()] = newResponse;
     }
 }
 
