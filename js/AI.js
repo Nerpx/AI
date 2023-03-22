@@ -20,9 +20,12 @@ function Respond() {
         "creeper": "Is that some kind of joke? ahh man.",
         "inflation": "Please don't use vulgar language around me.",
         "favorite color": "As a AI I do not really have a favorite color but if I were to say one of the most interesting ones would be yellow.",
+	"favorite animal": "As a AI I do not really have a favorite animal but if I were to say one of the most interesting ones would be a alligator.",
         "free time": "I really do not do anything for free time I am just a AI that responds to questions you may have.",
         "pets": "As a AI I personally can't have any animals but I know my creator has 1 dog if that is any help.",
-	"obama": "Obama care?"
+	"obama": "Obama care?",
+	"minecraft": "Minecraft is a sandbox game developed by Mojang Studios. The game was created by Markus 'Notch' Persson in the Java programming language.",
+	"fornite": "Fortnite is an online video game developed by Epic Games and released in 2017."
     };
     
     var foundKeywords = [];
