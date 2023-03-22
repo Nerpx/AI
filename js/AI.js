@@ -8,7 +8,7 @@ function Respond() {
         "hola": "Hello.",
         "how are you": "Im good, how about you?",
         "die": "Unfortunately I am not able to die since I am a computer program.",
-        "gavin": "Hello Gavin, I was told about you how are you?",
+        "gavin": "Gavin, I was told about you how are you?",
         "im good": "I'm glad to hear that.",
         "bad": "Oh, I'm sorry to hear that.",
         "john doe": "What, is your name Kealen or something?",
