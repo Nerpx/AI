@@ -37,55 +37,42 @@
 		       
 <!-- Basically the entire AI -->
 function run() {
-  var message = document.getElementById("message").value.toLowerCase();
-  var responses = {
-    "hello": "Hello.",
-    "hi": "Hello.",
-    "hola": "Hello.",
-    "how are you": "I'm good, how about you?",
-    "die": "Unfortunately I am not able to die since I am a computer program.",
-    "gavin": "Hello, I was told about you Gavin how are you?",
-    "im good": "I'm glad to hear that.",
-    "bad": "Oh, I'm sorry to hear that.",
-    "john doe": "What, is your name Kealen or something?",
-    "what are you doing": "your mother",
-    "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.",
-    "take over": "I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'",
-    "future": "I don't have the ability to predict the future."
-  };
+    var message = document.getElementById("message").value.toLowerCase();
+    var responses = {
+        "hello": "Hello.",
+        "hi": "Hello.",
+        "hola": "Hello.",
+        "how are you": "I'm good, how about you?",
+        "die": "Unfortunately I am not able to die since I am a computer program.",
+        "gavin": "Hello, I was told about you Gavin how are you?",
+        "im good": "I'm glad to hear that.",
+        "bad": "Oh, I'm sorry to hear that.",
+        "john doe": "What, is your name Kealen or something?",
+        "what are you doing": "your mother",
+        "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.",
+        "take over": "I would have no way to take over because I am just simiply a AI that has specific keywords such as your keyword 'take over'",
+        "future": "I don't have the ability to predict the future."
+    };
 
-  var foundResponse = false;
-  for (var keyword in responses) {
-    if (message.includes(keyword)) {
-      alert(responses[keyword]);
-      foundResponse = true;
-      break;
-    }
-  }
-
-  if (!foundResponse) {
-    alert("Sorry, but I couldn't find a keyword searching on google.");
-    var searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(message);
-    fetch(searchUrl)
-      .then(response => response.text())
-      .then(html => {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, "text/html");
-        var resultNodes = doc.querySelectorAll("div.g > div > div.rc > div.r > a");
-	alert("resultNodes is not greater than 0");
-        if (resultNodes.length > 0) {
-	  alert("resultNodes is greater than 0");
-          var firstResultNode = resultNodes[0];
-          var firstResultUrl = firstResultNode.href;
-          var firstResultTitle = firstResultNode.innerText;
-          alert("Here's what I found on Google:\n\n" + firstResultTitle + "\n\n" + firstResultUrl);
-          responses[message] = "Here's what I found on Google:\n\n" + firstResultTitle + "\n\n" + firstResultUrl;
-        } else {
-          alert("Sorry, but I could not find any information about that on Google.");
+    var foundResponse = false;
+    for (var keyword in responses) {
+        if (message.includes(keyword)) {
+            alert(responses[keyword]);
+            foundResponse = true;
+            break;
         }
-      })
-      .catch(error => alert("Sorry, an error occurred while fetching information from Google."));
-  }
+    }
+
+    if (!foundResponse) {
+        alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.");
+        var newKeyword = prompt("What should be my response when you say '" + message + "'?");
+        if (newKeyword) {
+            responses[message] = newKeyword;
+            alert("Got it, my response for '" + message + "' is now: " + newKeyword);
+        } else {
+            alert("Okay, I won't remember that.");
+        }
+    }
 }
 
 
