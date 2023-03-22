@@ -36,45 +36,43 @@
 <script>
 		       
 <!-- Basically the entire AI -->
-var keywords = {
-  "hello": "Hello.",
-  "hi": "Hello.",
-  "hola": "Hello.",
-  "how are you": "Im good, how about you?",
-  "die": "Unfortunately I am not able to die since I am a computer program.",
-  "gavin": "Hello, I was told about you Gavin how are you?",
-  "im good": "I'm glad to hear that.",
-  "bad": "Oh, I'm sorry to hear that.",
-  "john doe": "What, is your name Kealen or something?",
-  "what are you doing": "your mother",
-  "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.",
-  "take over": "I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'",
-  "future": "I don't have the ability to predict the future.",
-  "creeper": "Is that some kind of joke? ahh man.",
-  "inflation": "Don't use vulgar language around me."
-};
-
 function Respond() {
-  var Message = document.getElementById("message").value.toLowerCase();
-
-  var foundKeyword = false;
-  for (var key in keywords) {
-    if (Message.includes(key)) {
-      alert(keywords[key]);
-      foundKeyword = true;
-      break;
+    var Message = document.getElementById("message").value.toLowerCase();
+    var keywords = {
+        "hello": "Hello.",
+        "hi": "Hello.",
+        "hola": "Hello.",
+        "how are you": "Im good, how about you?",
+        "die": "Unfortunately I am not able to die since I am a computer program.",
+        "gavin": "Hello, I was told about you Gavin how are you?",
+        "im good": "I'm glad to hear that.",
+        "bad": "Oh, I'm sorry to hear that.",
+        "john doe": "What, is your name Kealen or something?",
+        "what are you doing": "your mother",
+        "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.",
+        "take over": "I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'",
+        "future": "I don't have the ability to predict the future.",
+        "creeper": "Is that some kind of joke? ahh man.",
+        "inflation": "Don't use vulgar language around me."
+    };
+    
+    var foundKeywords = [];
+    for (var key in keywords) {
+        if (Message.includes(key)) {
+            foundKeywords.push(keywords[key]);
+        }
     }
-  }
-
-  if (!foundKeyword) {
-    var addKeyword = confirm("Sorry, I do not understand. Would you like to add this as a new keyword?");
-    if (addKeyword) {
-      var newKeyword = prompt("Please enter the new keyword:");
-      var newResponse = prompt("Please enter the response for the new keyword:");
-      keywords[newKeyword] = newResponse;
-      alert("New keyword added: " + newKeyword);
+    
+    if (foundKeywords.length > 0) {
+        alert(foundKeywords.join(' '));
+    } else {
+        var addKeyword = confirm("Sorry, I do not understand. Would you like to add this as a new keyword?");
+        if (addKeyword) {
+            var newKeyword = prompt("Please enter the new keyword:");
+            var newResponse = prompt("Please enter the response for the new keyword:");
+            keywords[newKeyword.trim()] = newResponse;
+        }
     }
-  }
 }
 
 
