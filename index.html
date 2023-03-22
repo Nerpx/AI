@@ -37,35 +37,41 @@
 		       
 <!-- Basically the entire AI -->
 function run() {
-    var message = document.getElementById("message").value;
-    var keywords = {
-        "hello": "Hello!",
-        "hi": "Hello!",
-        "how are you": "I'm good, how about you?",
-        "die": "Unfortunately I am not able to die since I am a computer program.",
-        "gavin": "Hello, I was told about you Gavin how are you?",
-        "good": "I'm glad to hear that.",
-        "bad": "Oh, I'm sorry to hear that.",
-        "john doe": "What, is your name Kealen or something?",
-        "what are you doing": "your mother",
-        "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe."
-    };
-    var operators = ["+", "-", "*", "/"];
-
-    for (var keyword in keywords) {
-        if (message.includes(keyword)) {
-            alert(keywords[keyword]);
-            return;
-        }
+    var Message = document.getElementById("message").value;
+    if(Message.includes("hello") || Message.includes("hi")){
+        alert("Hello.");
     }
-    for (var i = 0; i < operators.length; i++) {
-        if (message.includes(operators[i])) {
-            var result = eval(message);
-            alert("The result is: " + result);
-            return;
-        }
+    if(Message.includes("how are you")){
+        alert("Im good, how about you?");
     }
-    alert("Sorry, but I do not understand. This may be due to the question you have asked is not in my set responses.");
+    if(Message.includes("die")){
+        alert("Unfortunately I am not able to die since I am a computer program.");
+    }
+    if(Message.includes("gavin")){
+        alert("Hello, I was told about you Gavin how are you?");
+    }
+    if(Message.includes("im good")){
+        alert("Thats good.");
+    }
+    if(Message.includes("bad")){
+        alert("Thats good.");
+    }
+    if(Message.includes("john doe")){
+        alert("What, is your name Kealen or something?");
+    }
+    if(Message.includes("what are you doing")){
+        alert("your mother");
+    }
+    if(Message.includes("daniels box")){
+        alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
+    }
+    if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
+        var result = eval(Message);
+        alert("The result is: " + result);
+    }
+    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
+        alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
+    }
 }
 
 
