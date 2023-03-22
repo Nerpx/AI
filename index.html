@@ -50,8 +50,8 @@ function run() {
 	if(Message.includes("gavin")){
 		alert("Hello, I was told about you Gavin how are you?");
 	}
-	if(Message.includes("im good")){
-		alert("Thats good.");
+	if(Message.includes("im good") || Message.includes("good")){
+		alert("I'm glad to hear that.");
 	}
 	if(Message.includes("bad")){
 		alert("Oh, I'm sorry to hear that.");
@@ -65,7 +65,12 @@ function run() {
 	if(Message.includes("daniels box")){
 		alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
 	}
-	if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box")){
+	if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
+        // Evaluate the mathematical expression
+        var result = eval(Message);
+        alert("The result is: " + result);
+    }
+	if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("+") || !Message.includes("-") || !Message.includes("*") || !Message.includes("/")){
 		alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
 	}
 }
