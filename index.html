@@ -38,15 +38,11 @@
 <!-- Basically the entire AI -->
 function run() {
 	var Message = document.getElementById("message").value;
-	if(Message == "hello"){
+	if(Message.includes("hello") || Message.includes("hi")){
 		alert("Hello.");
 		return;
 	}
-	if(Message == "hi"){
-		alert("Hello.");
-		return;
-	}
-	if(Message == "how are you?"){
+	if(Message.includes("how are you")){
 		alert("Im good, how about you?");
 		return;
 	}
