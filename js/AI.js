@@ -5,7 +5,8 @@ function Respond() {
     var keywords = {
         "hello": "Hello.",
         "hi": "Hello.",
-        "hola": "Hello.",
+        "hola": "Hello, young Spanish person.",
+	"bonjour": "Hello, young French person.",
         "how are you": "Im good, how about you?",
         "die": "Unfortunately I am not able to die since I am a computer program.",
         "gavin": "Gavin, I was told about you how are you?",
