@@ -68,11 +68,14 @@ function run() {
     if(Message.includes("take over")){
         alert("I would have no way to take over because I am just simiply a AI that has specific keywords such as your keyword 'take over'");
     }
+    if(Message.includes("future")){
+	alert("I don't have the ability to predict the future.");
+    }
     if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
         var result = eval(Message);
         alert("The result is: " + result);
     }
-    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("take over") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
+    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("take over") && !Message.includes("future") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
         alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
     }
 }
