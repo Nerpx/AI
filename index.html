@@ -37,73 +37,51 @@
 		       
 <!-- Basically the entire AI -->
 function run() {
-  var Message = document.getElementById("message").value.toLowerCase();
+  var message = document.getElementById("message").value.toLowerCase();
+  var responses = {
+    "hello": "Hello.",
+    "hi": "Hello.",
+    "hola": "Hello.",
+    "how are you": "I'm good, how about you?",
+    "die": "Unfortunately I am not able to die since I am a computer program.",
+    "gavin": "Hello, I was told about you Gavin how are you?",
+    "im good": "I'm glad to hear that.",
+    "bad": "Oh, I'm sorry to hear that.",
+    "john doe": "What, is your name Kealen or something?",
+    "what are you doing": "your mother",
+    "daniels box": "Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.",
+    "take over": "I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'",
+    "future": "I don't have the ability to predict the future."
+  };
 
-  var keywords = ["hello", "hi", "hola", "how are you", "die", "gavin", "im good", "bad", "john doe", "what are you doing", "daniels box", "take over", "future"];
-
-  if (keywords.some(keyword => Message.includes(keyword))) {
-    if (Message.includes("hello") || Message.includes("hi") || Message.includes("hola")) {
-      alert("Hello.");
-    }
-    else if (Message.includes("how are you")) {
-      alert("Im good, how about you?");
-    }
-    else if (Message.includes("die")) {
-      alert("Unfortunately I am not able to die since I am a computer program.");
-    }
-    else if (Message.includes("gavin")) {
-      alert("Hello, I was told about you Gavin how are you?");
-    }
-    else if (Message.includes("im good")) {
-      alert("I'm glad to hear that.");
-    }
-    else if (Message.includes("bad")) {
-      alert("Oh, I'm sorry to hear that.");
-    }
-    else if (Message.includes("john doe")) {
-      alert("What, is your name Kealen or something?");
-    }
-    else if (Message.includes("what are you doing")) {
-      alert("your mother");
-    }
-    else if (Message.includes("daniels box")) {
-      alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
-    }
-    else if (Message.includes("take over")) {
-      alert("I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'");
-    }
-    else if (Message.includes("future")) {
-      alert("I don't have the ability to predict the future.");
-    }
-    else {
-      var searchQuery = encodeURIComponent(Message);
-      var searchUrl = "https://www.google.com/search?q=" + searchQuery;
-
-      fetch(searchUrl)
-        .then(response => response.text())
-        .then(data => {
-          var parser = new DOMParser();
-          var htmlDoc = parser.parseFromString(data, "text/html");
-          var searchResults = htmlDoc.querySelectorAll(".g");
-          if (searchResults.length > 0) {
-            var firstResult = searchResults[0];
-            var firstResultLink = firstResult.querySelector("a").href;
-            var firstResultSnippet = firstResult.querySelector(".VwiC3b").textContent;
-            var response = "I'm not sure what you mean by that, but I found this on Google: " + firstResultSnippet;
-            alert(response);
-            responsiveVoice.speak(response, "UK English Female");
-          }
-          else {
-            alert("I'm sorry, I couldn't find anything on Google.");
-          }
-        })
-        .catch(error => {
-          alert("There was an error searching on Google: " + error);
-        });
+  var foundResponse = false;
+  for (var keyword in responses) {
+    if (message.includes(keyword)) {
+      alert(responses[keyword]);
+      foundResponse = true;
+      break;
     }
   }
-  else {
-    alert("Sorry, but I do not understand this. Please try using different words.");
+
+  if (!foundResponse) {
+    var searchUrl = "https://www.google.com/search?q=" + encodeURIComponent(message);
+    fetch(searchUrl)
+      .then(response => response.text())
+      .then(html => {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, "text/html");
+        var resultNodes = doc.querySelectorAll("div.g > div > div.rc > div.r > a");
+        if (resultNodes.length > 0) {
+          var firstResultNode = resultNodes[0];
+          var firstResultUrl = firstResultNode.href;
+          var firstResultTitle = firstResultNode.innerText;
+          alert("Here's what I found on Google:\n\n" + firstResultTitle + "\n\n" + firstResultUrl);
+          responses[message] = "Here's what I found on Google:\n\n" + firstResultTitle + "\n\n" + firstResultUrl;
+        } else {
+          alert("Sorry, but I could not find any information about that on Google.");
+        }
+      })
+      .catch(error => alert("Sorry, an error occurred while fetching information from Google."));
   }
 }
 
