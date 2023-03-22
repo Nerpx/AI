@@ -28,7 +28,7 @@
 
 <!-- UI -->
 <div>
-<form onsubmit="run()">
+<form onsubmit="Respond()">
 <input style="messagebox" id="message" placeholder="Type..." type="text"></input>
 <button id="Submit">SUBMIT</button>
 </form>
@@ -36,7 +36,7 @@
 <script>
 		       
 <!-- Basically the entire AI -->
-function run() {
+function Respond() {
     var message = document.getElementById("message").value.toLowerCase();
     var responses = {
         "hello": "Hello.",
@@ -62,15 +62,23 @@ function run() {
             break;
         }
     }
-
     if (!foundResponse) {
-    var newKeyword = prompt("Sorry, but I couldn't find a keyword. Please enter a new keyword:");
-    var newResponse = prompt("What should be the response for " + newKeyword + "?");
-    responses[newKeyword] = newResponse;
-    localStorage.setItem('responses', JSON.stringify(responses));
-    alert("Keyword " + newKeyword + " and its response have been added.");
-    location.reload()
+    	addKeyword()
     }
+}
+
+function addKeyword() {
+  var newKeyword = prompt("Enter new keyword:");
+  if (newKeyword == null) { // User clicked cancel
+    return;
+  }
+  var newResponse = prompt("Enter response for " + newKeyword + ":");
+  if (newResponse == null) { // User clicked cancel
+    return;
+  }
+  responses[newKeyword] = newResponse;
+  localStorage.setItem('responses', JSON.stringify(responses));
+  location.reload(); // Reload the page to display updated responses
 }
 
 
