@@ -20,7 +20,8 @@ function Respond() {
         "inflation": "Please don't use vulgar language around me.",
         "favorite color": "As a AI I do not really have a favorite color but if I were to say one of the most interesting ones would be yellow.",
         "free time": "I really do not do anything for free time I am just a AI that responds to questions you may have.",
-        "pets": "As a AI I personally can't have any animals but I know my creator has 1 dog if that is any help."
+        "pets": "As a AI I personally can't have any animals but I know my creator has 1 dog if that is any help.",
+	"obama": "Obama care?"
     };
     
     var foundKeywords = [];
