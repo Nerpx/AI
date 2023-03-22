@@ -1,138 +1,70 @@
-<html>
-<head>
-	<title>AI</title>
-</head>
-	
-<!-- Cicada 3301 because I am cool! -->
-<pre>
-
-      ,+++77777++=:,                    +=                      ,,++=7++=,,     
-    7~?7   +7I77 :,I777  I          77 7+77 7:        ,?777777??~,=+=~I7?,=77 I 
-=7I7I~7  ,77: ++:~+7 77=7777 7     +77=7 =7I7     ,I777= 77,:~7 +?7, ~7   ~ 777?
-77+7I 777~,,=7~  ,::7=7: 7 77   77: 7 7 +77,7 I777~+777I=   =:,77,77  77 7,777, 
-  = 7  ?7 , 7~,~  + 77 ?: :?777 +~77 77? I7777I7I7 777+77   =:, ?7   +7 777?    
-      77 ~I == ~77= +777 777~: I,+77?  7  7:?7? ?7 7 7 77 ~I   7I,,?7 I77~      
-       I 7=77~+77+?=:I+~77?     , I 7? 77 7   777~ +7 I+?7  +7~?777,77I         
-         =77 77= +7 7777         ,7 7?7:,??7     +7    7   77??+ 7777,          
-             =I, I 7+:77?         +7I7?7777 :             :7 7                  
-                7I7I?77 ~         +7:77,     ~         +7,::7   7               
-               ,7~77?7? ?:         7+:77777,           77 :7777=                
-                ?77 +I7+,7         7~  7,+7  ,?       ?7?~?777:                 
-                   I777=7777 ~     77 :  77 =7+,    I77  777                    
-                     +      ~?     , + 7    ,, ~I,  = ? ,                       
-                                    77:I+                                       
-                                    ,7                                          
-                                     :77                                        
-                                        :                                        
-</pre>
-
-<!-- UI -->
-<div>
-<form onsubmit="Respond()">
-<input style="messagebox" id="message" placeholder="Type..." type="text"></input>
-<button id="Submit">SUBMIT</button>
-</form>
-</div>
-<script>
-		       
-<!-- Basically the entire AI -->
 function Respond() {
-    var Message = document.getElementById("message").value.toLowerCase();
-    if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
-        alert("Hello.");
+  var Message = document.getElementById("message").value.toLowerCase();
+  if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
+    alert("Hello.");
+  }
+  else if(Message.includes("how are you")){
+    alert("Im good, how about you?");
+  }
+  else if(Message.includes("die")){
+    alert("Unfortunately I am not able to die since I am a computer program.");
+  }
+  else if(Message.includes("gavin")){
+    alert("Hello, I was told about you Gavin how are you?");
+  }
+  else if(Message.includes("im good")){
+    alert("I'm glad to hear that.");
+  }
+  else if(Message.includes("bad")){
+    alert("Oh, I'm sorry to hear that.");
+  }
+  else if(Message.includes("john doe")){
+    alert("What, is your name Kealen or something?");
+  }
+  else if(Message.includes("what are you doing")){
+    alert("your mother");
+  }
+  else if(Message.includes("daniels box")){
+    alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
+  }
+  else if(Message.includes("take over")){
+    alert("I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'");
+  }
+  else if(Message.includes("future")){
+    alert("I don't have the ability to predict the future.");
+  }
+  else if(Message.includes("creeper")){
+    alert("Is that some kind of joke? ahh man.");
+  }
+  else if(Message.includes("inflation")){
+    alert("Don't use vulgar language around me.");
+  }
+  else if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
+    var result = eval(Message);
+    alert("The result is: " + result);
+  }
+  else{
+    var keywordDefinition = getKeywordDefinition(Message);
+    if(keywordDefinition){
+      alert(keywordDefinition);
     }
-    if(Message.includes("how are you")){
-        alert("Im good, how about you?");
+    else{
+      alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.");
     }
-    if(Message.includes("die")){
-        alert("Unfortunately I am not able to die since I am a computer program.");
-    }
-    if(Message.includes("gavin")){
-        alert("Hello, I was told about you Gavin how are you?");
-    }
-    if(Message.includes("im good")){
-        alert("I'm glad to hear that.");
-    }
-    if(Message.includes("bad")){
-        alert("Oh, I'm sorry to hear that.");
-    }
-    if(Message.includes("john doe")){
-        alert("What, is your name Kealen or something?");
-    }
-    if(Message.includes("what are you doing")){
-        alert("your mother");
-    }
-    if(Message.includes("daniels box")){
-        alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
-    }
-    if(Message.includes("take over")){
-        alert("I would have no way to take over because I am just simiply a AI that has specific keywords such as your keyword 'take over'");
-    }
-    if(Message.includes("future")){
-	alert("I don't have the ability to predict the future.");
-    }
-    if(Message.includes("creeper")){
-	alert("Is that some kind of joke? ahh man.");
-    }
-    if(Message.includes("inflation")){
-	alert("Don't use vulgar language around me.");
-    }
-    if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
-        var result = eval(Message);
-        alert("The result is: " + result);
-    }
-    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("take over") && !Message.includes("future") && !Message.includes("creeper") && !Message.includes("inflation") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
-        alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
-    }
+  }
 }
 
-
-</script>
-
-<!-- StyleSheet for the website. -->
-<style>
-
-div {
-position: fixed; 
-bottom: 2%;
-width: 99.5%;
-height: 50px;
+function getKeywordDefinition(keyword){
+  // Search for the keyword on Google and extract the first few sentences of the definition
+  var googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(keyword) + " definition";
+  return axios.get(googleSearchUrl)
+    .then(function (response) {
+      var $ = cheerio.load(response.data);
+      var definitionSnippet = $("div.s").first().text();
+      return definitionSnippet.split(".")[0] + ".";
+    })
+    .catch(function (error) {
+      console.error(error);
+      return null;
+    });
 }
-	
-pre {
-text-align: center;
-white-space: pre;
-font-family: monospace;
-color: white;
-}
-
-body {
-background-color: black;
-}
-
-input { 
-border-color: #4AF626;
-background-color: black;
-color: white;
-width: 90%;
-height: 50px;
-}
-
-input:focus { 
-border-color: #4AF626 !important;
-background-color: black !important;
-color: white !important;
-width: 90%;
-height: 50px;
-}
-
-button {
-border-color: #4AF626;
-background-color: black;
-color: white;
-height: 50px;
-width: 9.4%;
-}
-
-</style>
-</html>
