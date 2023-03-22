@@ -70,10 +70,9 @@ if (Message.match(/^[0-9+\-*/\s()]+$/)) {
 	try {
 	var result = eval(Message);
 	alert(result);
-	foundKeyword = true;
+	return;
 } catch (error) {
 	alert("Sorry, there was an error in your expression.");
-	foundKeyword = true;
   }
 }
     
