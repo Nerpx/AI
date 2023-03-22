@@ -37,76 +37,54 @@
 		       
 <!-- Basically the entire AI -->
 function Respond() {
-  var Message = document.getElementById("message").value.toLowerCase();
-  if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
-    alert("Hello.");
-  }
-  else if(Message.includes("how are you")){
-    alert("Im good, how about you?");
-  }
-  else if(Message.includes("die")){
-    alert("Unfortunately I am not able to die since I am a computer program.");
-  }
-  else if(Message.includes("gavin")){
-    alert("Hello, I was told about you Gavin how are you?");
-  }
-  else if(Message.includes("im good")){
-    alert("I'm glad to hear that.");
-  }
-  else if(Message.includes("bad")){
-    alert("Oh, I'm sorry to hear that.");
-  }
-  else if(Message.includes("john doe")){
-    alert("What, is your name Kealen or something?");
-  }
-  else if(Message.includes("what are you doing")){
-    alert("your mother");
-  }
-  else if(Message.includes("daniels box")){
-    alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
-  }
-  else if(Message.includes("take over")){
-    alert("I would have no way to take over because I am just simply an AI that has specific keywords such as your keyword 'take over'");
-  }
-  else if(Message.includes("future")){
-    alert("I don't have the ability to predict the future.");
-  }
-  else if(Message.includes("creeper")){
-    alert("Is that some kind of joke? ahh man.");
-  }
-  else if(Message.includes("inflation")){
-    alert("Don't use vulgar language around me.");
-  }
-  else if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
-    var result = eval(Message);
-    alert("The result is: " + result);
-  }
-  else{
-    var keywordDefinition = getKeywordDefinition(Message);
-    if(keywordDefinition){
-      alert(keywordDefinition);
+    var Message = document.getElementById("message").value.toLowerCase();
+    if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
+        alert("Hello.");
     }
-    else{
-      alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.");
+    if(Message.includes("how are you")){
+        alert("Im good, how about you?");
     }
-  }
+    if(Message.includes("die")){
+        alert("Unfortunately I am not able to die since I am a computer program.");
+    }
+    if(Message.includes("gavin")){
+        alert("Hello, I was told about you Gavin how are you?");
+    }
+    if(Message.includes("im good")){
+        alert("I'm glad to hear that.");
+    }
+    if(Message.includes("bad")){
+        alert("Oh, I'm sorry to hear that.");
+    }
+    if(Message.includes("john doe")){
+        alert("What, is your name Kealen or something?");
+    }
+    if(Message.includes("what are you doing")){
+        alert("your mother");
+    }
+    if(Message.includes("daniels box")){
+        alert("Daniel's Box? That is a Masterpiece that will probably be destroyed by John Doe.");
+    }
+    if(Message.includes("take over")){
+        alert("I would have no way to take over because I am just simiply a AI that has specific keywords such as your keyword 'take over'");
+    }
+    if(Message.includes("future")){
+	alert("I don't have the ability to predict the future.");
+    }
+    if(Message.includes("creeper")){
+	alert("Is that some kind of joke? ahh man.");
+    }
+    if(Message.includes("inflation")){
+	alert("Don't use vulgar language around me.");
+    }
+    if(Message.includes("+") || Message.includes("-") || Message.includes("*") || Message.includes("/")){
+        var result = eval(Message);
+        alert("The result is: " + result);
+    }
+    if(!Message.includes("hello") && !Message.includes("hi") && !Message.includes("how are you") && !Message.includes("die") && !Message.includes("gavin") && !Message.includes("im good") && !Message.includes("bad") && !Message.includes("john doe") && !Message.includes("what are you doing") && !Message.includes("daniels box") && !Message.includes("take over") && !Message.includes("future") && !Message.includes("creeper") && !Message.includes("inflation") && !Message.includes("+") && !Message.includes("-") && !Message.includes("*") && !Message.includes("/")){
+        alert("Sorry, but I do not understand this may be due to the question you have asked is not in my set responses.")
+    }
 }
-
-function getKeywordDefinition(keyword){
-  // Search for the keyword on Google and extract the first few sentences of the definition
-  var googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(keyword) + " definition";
-  return axios.get(googleSearchUrl)
-    .then(function (response) {
-      var $ = cheerio.load(response.data);
-      var definitionSnippet = $("div.s").first().text();
-      return definitionSnippet.split(".")[0] + ".";
-    })
-    .catch(function (error) {
-      console.error(error);
-      return null;
-    });
-}
-
 
 
 </script>
