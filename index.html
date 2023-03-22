@@ -37,7 +37,7 @@
 		       
 <!-- Basically the entire AI -->
 function run() {
-    var Message = document.getElementById("message").value;
+    var Message = document.getElementById("message").value.toLowerCase();
     if(Message.includes("hello") || Message.includes("hi") || Message.includes("hola")){
         alert("Hello.");
     }
