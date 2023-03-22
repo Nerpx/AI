@@ -67,9 +67,12 @@ function Respond() {
             alert("The result is: " + result);
         }
     }
-    if (!foundResponse) {
-	alert("Sorry, but I couldn't find a keyword for your message please try and different query.")
+    if (!foundResponse && learning == true) {
+	alert("Sorry, but I couldn't find a keyword for your message starting AddKeyword Process.")
     	addKeyword()
+    }
+    else {
+	alert("Sorry, but I couldn't find a keyword for your message please try and different query.")
     }
 }
 
