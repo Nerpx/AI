@@ -37,6 +37,7 @@
 		       
 <!-- Basically the entire AI -->
 function Respond() {
+    var learning = false;
     var message = document.getElementById("message").value.toLowerCase();
     var responses = {
         "hello": "Hello.",
@@ -61,14 +62,19 @@ function Respond() {
             foundResponse = true;
             break;
         }
+	if (/\d+[+\-*\/]\d+/.test(Message)) {
+	    var result = eval(Message);
+            alert("The result is: " + result);
+        }
     }
     if (!foundResponse) {
+	alert("Sorry, but I couldn't find a keyword for your message please try and different query.")
     	addKeyword()
     }
 }
 
 function addKeyword() {
-  var newKeyword = prompt("Enter new keyword:");
+  var newKeyword = prompt("Please enter a new keyword:");
   if (newKeyword == null) { // User clicked cancel
     return;
   }
