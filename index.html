@@ -67,7 +67,9 @@ function run() {
     var newKeyword = prompt("Sorry, but I couldn't find a keyword. Please enter a new keyword:");
     var newResponse = prompt("What should be the response for " + newKeyword + "?");
     responses[newKeyword] = newResponse;
+    localStorage.setItem('responses', JSON.stringify(responses));
     alert("Keyword " + newKeyword + " and its response have been added.");
+    location.reload()
     }
 }
 
