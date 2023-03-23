@@ -52,7 +52,7 @@ if (Message.match(/^[0-9+\-*/\s()]+$/)) {
         if (addKeyword) {
             var newKeyword = prompt("Please enter the new keyword:");
             var newResponse = prompt("Please enter the response for the new keyword:");
-            keywords[newKeyword.trim()] = newResponse;
+            keywords += newResponse;
         }
     }
 }
