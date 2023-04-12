@@ -26,7 +26,9 @@ function Respond() {
 	"obama": "Obama care?",
 	"minecraft": "Minecraft is a sandbox game developed by Mojang Studios. The game was created by Markus 'Notch' Persson in the Java programming language.",
 	"fortnite": "Fortnite is an online video game developed by Epic Games and released in 2017.",
-	"chromeos": "ChromeOS, is a Linux-based operating system developed and designed by Google. It is derived from the open-source ChromiumOS and uses the Google Chrome web browser as its principal user interface."
+	"chromeos": "ChromeOS, is a Linux-based operating system developed and designed by Google. It is derived from the open-source ChromiumOS and uses the Google Chrome web browser as its principal user interface.",
+	"steam": "Steam is a video game digital distribution service and storefront from Valve. It was launched as a software client in September 2003 as a way for Valve to provide automatic updates for their games, and expanded to distributing third-party game publishers' titles in late 2005.",
+	"chatgpt": "ChatGPT is an artificial-intelligence chatbot developed by OpenAI and launched in November 2022. It is built on top of OpenAI's GPT-3.5 and GPT-4 families of large language models and has been fine-tuned using both supervised and reinforcement learning techniques."
     };
     
     var foundKeywords = [];
