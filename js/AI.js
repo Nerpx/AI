@@ -25,7 +25,8 @@ function Respond() {
         "pets": "As a AI I personally can't have any animals but I know my creator has 1 dog if that is any help.",
 	"obama": "Obama care?",
 	"minecraft": "Minecraft is a sandbox game developed by Mojang Studios. The game was created by Markus 'Notch' Persson in the Java programming language.",
-	"fortnite": "Fortnite is an online video game developed by Epic Games and released in 2017."
+	"fortnite": "Fortnite is an online video game developed by Epic Games and released in 2017.",
+	"chromeos": "ChromeOS, is a Linux-based operating system developed and designed by Google. It is derived from the open-source ChromiumOS and uses the Google Chrome web browser as its principal user interface."
     };
     
     var foundKeywords = [];
