@@ -9,7 +9,7 @@ pre {
 text-align: center;
 white-space: pre;
 font-family: monospace;
-color: #4AF626;
+color: #660000;
 }
 
 body {
@@ -17,7 +17,7 @@ background-color: black;
 }
 
 input { 
-border-color: #4AF626;
+border-color: #660000;
 background-color: black;
 color: white;
 width: 90%;
@@ -25,7 +25,7 @@ height: 50px;
 }
 
 input:focus { 
-border-color: #4AF626 !important;
+border-color: #660000 !important;
 background-color: black !important;
 color: white !important;
 width: 90%;
